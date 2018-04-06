@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Exercício 7</title>
+</head>
+<body>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <div id="exercicio7"></div>
+    <script>
+        new Vue({
+            el: '#exercicio7',
+            data: {}
+        });
+    </script>
+    <div id="exercicio7">
+        <button @click="toggle = !toggle">Butão</button>
+        <div v-if="toggle">Texto</div>
+    </div>
+    
+    <script>
+            new Vue({
+            el: '#exercicio7',
+            data: {
+            toggle: false
+            }
+            });
+
+        <transition>
+        <div v-if="toggle">Texto</div>
+        </transition>
+    </script> 
+   
+        <style>
+        .desvanecer-enter {
+        /* estado inicial da animação */
+        }
+        .desvanecer-enter-active {
+        /* animação em curso */
+        }
+        .desvanecer-leave {
+        /* estado final da animação */
+        }
+        .desvanecer-leave-active {
+        /* animação em curso até estado inicial*/
+        }
+       
+         .desvanecer-enter {
+            /* estado inicial da animação */
+            opacity: 0;
+            }
+            .desvanecer-enter-active {
+            /* animação em curso */
+            transition: opacity 3s;
+            }
+            .desvanecer-leave {
+            /* estado final da animação */
+            opacity: 1;
+            }
+            .desvanecer-leave-active {
+            /* animação em curso até estado inicial*/
+            transition: opacity 3s;
+            opacity: 0;
+            }
+        </style>
+        <transition name="deslizar">
+            <div v-if="toggle">Texto 2</div>
+            </transition>
+            </div>
+            <style>
+            .deslizar-enter {
+            transform: translateY(20px);
+            }
+            .deslizar-enter-active {
+            animation: desliza-entrada 1s ease-out forwards
+            }
+            .deslizar-leave {
+            /*o forwards mantem a posição do elemento que tinha
+            no fim da animação, em vez de regressar à posição inicial*/
+            }
+            .deslizar-leave-active{
+            animation: desliza-saida 1s ease-out forwards
+            }
+            @keyframes desliza-entrada {
+            from {
+            transform: translateY(20px);
+            }
+            to {
+            transform: translateY(0);
+            }
+            }
+            @keyframes desliza-saida {
+            from {
+            transform: translateY(0);
+            }
+            to {
+            transform: translateY(20px);
+            }
+            }
+            </style>
+            
+</body>
+</html>

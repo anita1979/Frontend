@@ -23,7 +23,11 @@ new Vue({
             }
         },
         specialAttack: function(){
-         
+            var damage = this.calculateDamage (1,6);
+            this.turns.unshift({
+                isPlayer :true,
+                text: "Player "
+            })
                 
             
         },
